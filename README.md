@@ -1,7 +1,7 @@
 # Pokedex
 
 ## En que consiste la aplicacion
-Simular una pokedex consumiendo el API de la pagina https://pokeapi.co/
+Simular una pokedex consumiendo el API de la pagina https://pokeapi.co/ \n
 En este caso, espero que el siguiente proyecto llegue a parecerse a la pagina https://www.pokemon.com/el/pokedex/
 
 ## Stack Tecnológico 
