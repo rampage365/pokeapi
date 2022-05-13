@@ -7,7 +7,6 @@ class classArraryNameAndUrlPokemones{
     }
 }
 const arraryNameAndUrlPokemones = new Array();
-//para saber si se encontraron o no asteroides
 
 
 
@@ -47,7 +46,7 @@ START FUNCION
  */
 
 var listaPokemones = async(cantidadPokemones,desdeIndicePokemones)=>{
-    //Obtenindo los ids de los meteoritos peligrosos
+    //Obteniendo una lista de los pokemones
     var respuestaPokeAPI = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${cantidadPokemones}&offset=${desdeIndicePokemones}`)
     var listaDePokemones = await respuestaPokeAPI.json()
     Object.keys(listaDePokemones.results).forEach(object =>{
@@ -97,7 +96,7 @@ START FUNCION OBTENIENDO limite 898
 **************************************************************************************/
 
 var traerPokemonesPorNombre = async(nombreConsulta)=>{
-    //Obtenindo los ids de los meteoritos peligrosos
+    //Obtenindo los pokemones por nombre
     var respuestaNombre = await fetch(`https://pokeapi.co/api/v2/pokemon/${nombreConsulta}`)
     var datosPokemon = await respuestaNombre.json()
        //console.log("*****************************************")
@@ -114,7 +113,29 @@ var traerPokemonesPorNombre = async(nombreConsulta)=>{
        }
        console.log("imagenurl : " + datosPokemon.sprites.other["official-artwork"].front_default)
 
-       console.log("tipo : " + datosPokemon.types[0].type.name)
+       //console.log("tipo : " + datosPokemon.types[0].type.name)
+       var indice = 0
+        do {
+            console.log("tipo : " + datosPokemon.types[indice].type.name)
+            //array.push(endPoint.evolves_to[0].species.name)
+            indice++;
+        } while (datosPokemon.types[indice]);
+        
+        console.log("especie : " + datosPokemon.species.name)
+        
+        console.log("habilidad : " + datosPokemon.abilities[0].ability.name)
+        
+        console.log("experiencia base : " + datosPokemon.base_experience)
+        
+        console.log("Estadisticas")
+        indice = 0
+         do {
+             console.log(datosPokemon.stats[indice].stat.name  +" : " + datosPokemon.stats[indice].base_stat)
+             //array.push(endPoint.evolves_to[0].species.name)
+             indice++;
+         } while (datosPokemon.stats[indice]);
+
+
 }
 
 
